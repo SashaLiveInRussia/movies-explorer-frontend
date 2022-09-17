@@ -1,0 +1,36 @@
+.footer {
+  padding: 79px 0px 20px;
+  margin: 0px auto;
+}
+
+.foter__content {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.foter__hr {
+  background: #e8e8e8;
+  margin-top: 20px;
+}
+
+.foter__links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.foter__link {
+    text-decoration: none;
+    color: #000000;
+    margin-left: 20px;
+}

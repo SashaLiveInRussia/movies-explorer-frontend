@@ -1,0 +1,9 @@
+.main__promo {
+  display: flex;
+  margin: 38px -1.5vw 0px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 160px 0px 217px;
+  position: relative;
+  justify-content: center;
+}

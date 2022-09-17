@@ -1,0 +1,39 @@
+.portfolio {
+  padding: 104px 0px 125px;
+}
+
+.portfolio__title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #a0a0a0;
+}
+
+.portfolio__links {
+  margin-top: 50px;
+}
+
+.portfolio__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 19px;
+}
+
+.portfolio__link-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 167%;
+  letter-spacing: -0.04em;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+}
+
+.portfolio__hr {
+  margin-bottom: 20px;
+}

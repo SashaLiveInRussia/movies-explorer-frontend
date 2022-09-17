@@ -1,0 +1,21 @@
+h1 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: calc(27px + 23 * (100vw / 1280));
+  line-height: 116%;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.main__about-description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  max-width: 550px;
+  justify-content: flex-start;
+  margin-right: 40px;
+}

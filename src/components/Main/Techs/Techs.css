@@ -1,0 +1,34 @@
+.techs {
+  padding: 100px 0px;
+}
+
+.techs__subtitle {
+  text-align: center;
+  margin: 26px auto 100px;
+}
+
+.techs__body {
+  margin-top: 90px;
+}
+
+.techs__list {
+  display: flex;
+  justify-content: center;
+}
+
+.techs__techs-list {
+  display: flex;
+  justify-content: center;
+  width: 90px;
+  height: 60px;
+  margin-right: 10px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  align-items: center;
+  letter-spacing: -0.04em;
+}

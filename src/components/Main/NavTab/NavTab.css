@@ -1,0 +1,27 @@
+.main__nav {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    justify-content: center;
+  }
+  
+  .main__nav-block {
+    display: flex;
+    height: 36px;
+    background: #e8e8e8;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    margin-right: 10px;
+    width: 95px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .main__nav-block:hover {
+      background: #2BE080;
+      transition: 0.5s;
+  }
