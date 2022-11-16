@@ -1,8 +1,7 @@
-import './Movies.css';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
-import SearchForm from './SearchForm/SearchForm';
+import SearchForm from '../Movies/SearchForm/SearchForm';
 
-function Movies({ save }) {
+function SavedMovies({ save }) {
 	return (
 		<>
 			<SearchForm />
@@ -11,4 +10,4 @@ function Movies({ save }) {
 	);
 }
 
-export default Movies;
+export default SavedMovies;

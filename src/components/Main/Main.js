@@ -10,7 +10,6 @@ import Header from '../Header/Header';
 function Main() {
   return (
     <>
-      <Header auth={false} />
       <div className="main">
         <Promo />
         <AboutProject />
@@ -18,7 +17,6 @@ function Main() {
         <AboutMe />
         <Portfolio />
       </div >
-      <Footer />
     </>
   );
 }

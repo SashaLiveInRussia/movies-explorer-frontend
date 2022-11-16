@@ -1,0 +1,79 @@
+.reg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.reg__logo {
+	width: 38px;
+	height: 38px;
+	background-image: url(../../images/logo.svg);
+	margin-bottom: 40px;
+}
+
+.profile__contain {
+	text-align: center;
+	margin-top: 74px;
+	width: 410px;
+	display: flex;
+	flex-direction: column;
+}
+
+.profile__info {
+	margin: 123px 0px 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+.profile__info-text {
+	display: flex;
+	justify-content: space-between;
+}
+
+.profile__name {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.profile__hr {
+	background: #E8E8E8;
+	margin: 16px 0px 17px;
+}
+
+
+.profile__button-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 220px;
+}
+
+.profile__button {
+	background: none;
+	outline: none;
+	border: none;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 16px;
+	text-align: center;
+	color: #000000;
+	cursor: pointer;
+}
+
+.reg__link {
+	background: none;
+	outline: none;
+	border: none;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 16px;
+	text-align: center;
+	color: #FF3055;
+}
