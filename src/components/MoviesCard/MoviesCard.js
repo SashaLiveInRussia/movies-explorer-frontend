@@ -8,7 +8,7 @@ function MoviesCard({ card, save }) {
 	return (
 		<div className='card'>
 			<div className='card__contain-img'>
-				<img className='card__img' src={card.img} />
+				<img alt='' className='card__img' src={card.img} />
 			</div>
 			<div className='card__text'>
 				<div className='card__name'>
@@ -20,7 +20,7 @@ function MoviesCard({ card, save }) {
 
 					{save === true && (
 						<>
-						<button className='card__like card__like_in card__delete' onClick={handleLikeClick}></button>
+							<button className='card__like card__like_in card__delete' onClick={handleLikeClick}></button>
 						</>
 					)}
 

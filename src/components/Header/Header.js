@@ -15,7 +15,7 @@ function Header({ auth }) {
     <header>
       {auth === false && (
         <div className={'header'}>
-          <Link className='header__logo' to='/'><img src={logo} /></Link>
+          <Link className='header__logo' to='/'><img alt='' src={logo} /></Link>
           <div className='header__auth'>
             <Link className='header__reg' to='/signup'>Регистрация</Link>
             <div className='header__login-background'>
@@ -27,7 +27,7 @@ function Header({ auth }) {
 
       {auth === true && (
         <div className={"header" + (menu ? ' header__open' : '')}>
-          <Link className="header__logo" to='/'><img src={logo} /></Link>
+          <Link className="header__logo" to='/'><img alt='' src={logo} /></Link>
           <button onClick={toggleMenu} className='header__burger'>
             <svg width="40" height="43" viewBox="0 0 40 43" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M31 15L9 15V12.5L31 12.5V15Z" fill="black" />
