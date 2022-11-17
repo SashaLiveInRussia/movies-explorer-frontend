@@ -1,117 +1,121 @@
 .about-me {
-	padding: 110px 0px 0px;
+  padding: 110px 0px 0px;
 }
 
 .about-me__title {
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 111%;
-	margin: 18px 0px 26px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 111%;
+  margin: 18px 0px 26px;
 }
 
 .about-me__content {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 66px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
 }
 
 .about-me__head {
-	text-align: left;
+  text-align: left;
 }
 
 .about-me__subtitle {
-	line-height: 157%;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
+  line-height: 157%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  max-width: 600px;
 }
 
 .about-me__photo {
-	margin: 10px;
-	max-width: 270px;
+  max-width: 270px;
 }
 
 .about-me__link {
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 17px;
-	margin-top: -21px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: -21px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-	.about-me {
-		padding: 90px 0px 0px;
-	}
+  .about-me {
+    padding: 90px 0px 0px;
+  }
 
-	.about-me__title {
-		font-size: 12px;
-		margin: 16px 0px 20px;
-	}
+  .about-me__title {
+    font-size: 12px;
+    margin: 16px 0px 20px;
+  }
 
-	.about-me__subtitle {
-		line-height: 150%;
-		font-size: 12px;
-	}
+  .about-me__content {
+    margin-top: 64px;
+  }
 
-	.about-me__photo img {
-		width: 255px;
-	}
+  .about-me__subtitle {
+    line-height: 150%;
+    font-size: 12px;
+    max-width: 364px;
+  }
 
-	.about-me__head {
-		font-size: 40px;
-	}
+  .about-me__photo img {
+    width: 255px;
+  }
 
-	.about-me__link {
-		font-family: "Inter";
-		font-style: normal;
-		font-weight: 500;
-		font-size: 14px;
-		line-height: 17px;
-		margin-top: -31px;
-	}
+  .about-me__head {
+    font-size: 40px;
+  }
+
+  .about-me__link {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: -31px;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-	.about-me {
-		padding: 70px 0px;
-	}
+  .about-me {
+    padding: 70px 0px;
+  }
 
-	.about-me__content {
-		margin-top: 60px;
-		display: flex;
-		flex-direction: column-reverse;
-	}
+  .about-me__content {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
-	.about-me__photo {
-		object-fit: cover;
-		margin: 0px auto 40px;
-	}
+  .about-me__photo {
+    object-fit: cover;
+    margin: 0px auto 46px;
+    max-width: 100%;
+    width: 100%;
+  }
 
-	img {
-		width: 100%;
-	}
+  .about-me__photo img {
+    width: 100%;
+  }
 
-	.about-me__title {
-		font-size: 12px;
-		margin: 20px 0px 20px;
-	}
+  .about-me__title {
+    font-size: 12px;
+    margin: 20px 0px 20px;
+  }
 
-	.about-me__subtitle {
-		line-height: 145%;
-		font-size: 11px;
-	}
+  .about-me__subtitle {
+    line-height: 145%;
+    font-size: 11px;
+  }
 
-	.about-me__link {
-		font-family: "Inter";
-		font-style: normal;
-		font-weight: 500;
-		font-size: 14px;
-		line-height: 17px;
-		margin-top: 40px;
-	}
+  .about-me__link {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 40px;
+  }
 }

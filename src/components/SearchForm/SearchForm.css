@@ -1,0 +1,132 @@
+.search {
+  padding: 88px 0px 66px;
+}
+
+.search__input {
+  width: 100%;
+  height: 72px;
+  border: 1.5px solid #aaaaaa55;
+  border-radius: 8px;
+  padding-left: 25px;
+}
+
+.search__input:focus {
+  outline: 1.5px solid #00000055;
+}
+
+.search__block {
+  position: relative;
+}
+
+.search__button {
+  position: absolute;
+  width: 100px;
+  height: 52px;
+  right: 10px;
+  top: 10px;
+  background: #3456f3;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  color: #ffffff;
+  border: 0px solid #3456f3;
+}
+
+.search__block-toggle {
+  margin-top: 26px;
+}
+
+.search__toggle {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+}
+
+.switch-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.slider {
+  cursor: pointer;
+  width: 36px;
+  height: 20px;
+  background: #2be080;
+  display: block;
+  border-radius: 20px;
+  position: relative;
+}
+
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border-radius: 90px;
+  transition: 0.3s;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.switch-input:checked + .slider {
+  background: #ebebeb;
+}
+
+.switch-input:checked + .slider::after {
+  transform: translateX(100%);
+  background: #2be080;
+}
+
+.search__toggle-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  margin-left: 14px;
+}
+
+.search__hr {
+  margin-top: 44px;
+  margin-bottom: 12px;
+  background: #aaaaaa;
+  opacity: 0.2;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .search {
+    margin: 0 -20px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .search__button {
+    width: 80px;
+    height: 44px;
+    right: 3px;
+    top: 6px;
+  }
+
+  .search__input {
+    height: 56px;
+    padding-left: 11px;
+  }
+
+  .search {
+    padding: 88px 0px 37px;
+  }
+
+  .search__hr {
+    margin-top: 67px;
+  }
+}

@@ -1,38 +1,102 @@
+body {
+  font-family: "Inter";
+}
+
 .App {
-	margin: 18px auto;
-	width: 100%;
-	padding: 0 3.5vw;
+  width: 100%;
+  padding: 18px 5.4vw;
 }
 
 h1 {
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 400;
-	font-size: calc((100vw - 320px)/(1280 - 320) * (50 - 29) + 29px);
-	line-height: 116%;
-	text-align: center;
-	letter-spacing: -0.04em;
-	margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: calc((100vw - 320px) / (1280 - 320) * (50 - 29) + 29px);
+  line-height: 116%;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 0;
 }
 
 h2 {
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 29px;
-	margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1280px) {
-
-	.App {
-		padding: 0 6.5vw;
-	}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .App {
+    padding: 18px 50px;
+  }
 }
 
-@media screen and (min-width: 320px) and (max-width: 768px) {
-	.App {
-		padding: 0 18px;
-	}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .App {
+    padding: 18px;
+  }
+
+  .h1 {
+    font-size: 29px;
+    line-height: 37px;
+  }
+}
+
+.reg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 36px);
+}
+
+.reg__input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 0px;
+  width: 100%;
+  padding: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.reg__input:last-of-type {
+  margin-bottom: 22px;
+}
+
+.reg__input:focus {
+  outline: solid 1px;
+}
+
+.reg__logo {
+  width: 38px;
+  height: 38px;
+  background-image: url(../../images/logo.svg);
+  margin-bottom: 40px;
+}
+
+.reg__link-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #a0a0a0;
+  margin-right: 6px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .reg__logo {
+    display: inline-block;
+    margin-inline: auto;
+  }
+
+  .reg__link-text {
+    font-size: 12px;
+  }
 }

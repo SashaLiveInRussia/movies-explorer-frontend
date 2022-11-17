@@ -1,0 +1,29 @@
+.preloader {
+	padding: 50px 0px 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.preloader__button {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #FFFFFF;
+	border: 0px;
+	width: 25%;
+	height: 36px;
+	cursor: pointer;
+}
+
+.preloader__button_hidden {
+	height: 0px;
+	overflow: hidden;
+}
