@@ -3,7 +3,7 @@
   margin: 18px auto 0px;
   justify-content: space-between;
   align-items: center;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   line-height: 16px;
   font-weight: 500;
@@ -41,14 +41,14 @@
 
 .header__account-background {
   background: #f9f9f9;
-  border-radius: 3px;
+  border-radius: 20px;
   padding: 8px 20px;
 }
 
 .header__films {
   display: flex;
   margin-left: 44px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -110,7 +110,7 @@
   }
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 768px) {
   .header::after {
     position: fixed;
     z-index: 9;
@@ -173,7 +173,7 @@
 
   .header__film {
     margin-right: 0;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     position: relative;
   }
 

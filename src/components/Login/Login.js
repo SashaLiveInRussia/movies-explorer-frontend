@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Login({ link }) {
 	return (
 		<section className='reg'>
-			<div className='reg__contain'>
+			<form className='reg__contain'>
 				<Link to='/' className='reg__logo'></Link>
 				<h2 className=''>Рады видеть!</h2>
 				<div className='reg__form'>
@@ -25,7 +25,7 @@ function Login({ link }) {
 						<Link to={link} className='reg__link-sign-in'>Регистрация</Link>
 					</div>
 				</div>
-			</div>
+			</form>
 		</section >
 	);
 }

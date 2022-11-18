@@ -9,7 +9,7 @@
 }
 
 .reg__name-form {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -23,7 +23,7 @@
 
 .reg__text_error {
   visibility: hidden;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -50,7 +50,7 @@
   height: 45px;
   border: 0px;
   border-radius: 3px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -67,7 +67,7 @@
 }
 
 .reg__link-sign-in {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

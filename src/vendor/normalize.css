@@ -22,7 +22,6 @@ html {
 /* Sections
    ========================================================================== */
 
-
 /**
  * Render the `main` element consistently in IE.
  */
@@ -74,6 +73,7 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
 }
 
 /**

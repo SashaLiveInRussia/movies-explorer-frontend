@@ -18,7 +18,7 @@
 }
 
 .profile__name {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 11px;
@@ -41,7 +41,7 @@
   background: none;
   outline: none;
   border: none;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -55,7 +55,7 @@
   background: none;
   outline: none;
   border: none;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;

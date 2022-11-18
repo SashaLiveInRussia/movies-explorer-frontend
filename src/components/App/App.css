@@ -1,5 +1,5 @@
 body {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
 }
 
 .App {
@@ -55,7 +55,7 @@ h2 {
   border: 0px;
   width: 100%;
   padding: 15px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -80,7 +80,7 @@ h2 {
 }
 
 .reg__link-text {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
