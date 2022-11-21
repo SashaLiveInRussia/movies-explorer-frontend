@@ -1,24 +1,38 @@
 import '../Register/Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { register } from '../../utils/MainApi';
+import { useState } from 'react';
 
 function Register({ link }) {
+  const [form, setForm] = useState({});
+  const history = useHistory();
+
+  function handleReg() {
+    register(form);
+    history.push('/movies');
+  }
+
+  function handleChange(event) {
+   setForm(oldForm => ({...oldForm, [event.target.name]: event.target.value})) 
+  }
+
   return (
     <section className='reg'>
-      <form className='reg__contain'>
+      <form onSubmit={handleReg} className='reg__contain'>
         <Link to='/' className='reg__logo'></Link>
         <h2 className=''>Добро пожаловать!</h2>
         <div className='reg__form'>
           <label className='reg__form'>
             <div className='reg__name-form'>Имя</div>
-            <input className='reg__input' />
+            <input name="name" className='reg__input' onChange={handleChange} />
           </label>
           <label>
-            <div className='reg__name-form' >E-mail</div>
-            <input className='reg__input' type="email" />
+            <div className='reg__name-form' onChange={handleChange}>E-mail</div>
+            <input name="email" className='reg__input' type="email" />
           </label>
           <label>
             <div className='reg__name-form' >Пароль</div>
-            <input className='reg__input' type="password" />
+            <input name="password" className='reg__input' onChange={handleChange} type="password" />
             <span className="reg__text_error">Что-то пошло не так...</span>
           </label>
         </div>
