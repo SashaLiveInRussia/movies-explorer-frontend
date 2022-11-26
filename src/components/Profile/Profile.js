@@ -4,54 +4,69 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFormWithValidation } from '../../utils/useFormValidation';
 import { logout, updateProfile } from '../../utils/MainApi';
 import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
-function Profile({ link }) {
-	const history = useHistory();
-	const currentUser = useSelector(state => state.currentUser);
-	const { values, handleChange, errors, isValid } = useFormWithValidation();
-	const dispatch = useDispatch();
+function Profile() {
+   const history = useHistory();
+   const currentUser = useSelector(state => state.currentUser);
+   const { values, isValid, errors, handleChange, resetForm } = useFormWithValidation();
+   const dispatch = useDispatch();
 
-	function handleSubmit(event) {
-		event.preventDefault();
-		dispatch(updateProfile(values))
-	}
+   useEffect(() => {
+      resetForm(currentUser, {}, true);
+   }, [resetForm, currentUser]);
 
-	function handleLogout() {
-		localStorage.removeItem('token');
-		dispatch(logout())
-			.then(() => {
-				history.push('/');
-			})
-	}
 
-	return (
-		<>
-			<Header auth={true} />
-			<section className='reg'>
-				<form onSubmit={handleSubmit} className='profile__contain'>
-					<h2 className=''>Привет, {currentUser.name}</h2>
-					<div className='profile__info'>
-						<div className='profile__info-text'>
-							<div className='profile__name'>Имя</div>
-							<div className='profile__name' type="email">{currentUser.name}</div>
-						</div>
-					</div>
+   function handleSubmit(event) {
+      event.preventDefault();
+      console.log(values);
+      dispatch(updateProfile(values))
+   }
 
-					<hr className='profile__hr' />
+   function handleLogout() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('movies');
+      localStorage.removeItem('search');
+      localStorage.removeItem('isShort');
 
-					<div className='profile__info-text'>
-						<div className='profile__name' >E-mail</div>
-						<div className='profile__name' type="password">{currentUser.email}</div>
-					</div>
+      dispatch(logout())
+         .then(() => {
+            history.push('/');
+         })
+   }
 
-					<div className='profile__button-block'>
-						<button disabled={!isValid} className='profile__button'>Редактировать</button>
-						<button onClick={handleLogout} type='button' className='reg__link'>Выйти из аккаунта</button>
-					</div>
-				</form>
-			</section >
-		</>
-	);
+   console.log(errors);
+
+   return (
+      <>
+         <Header auth={true} />
+         <section className='reg'>
+            <form onSubmit={handleSubmit} className='profile__contain'>
+               <h2 className=''>Привет, {currentUser.name}</h2>
+               <div className='profile__info'>
+                  <div className='profile__info-text'>
+                     <div className='profile__name'>Имя</div>
+                     <input required className='profile__input' name="name" defaultValue={currentUser.name} onChange={handleChange} />
+                     {errors.name && <span className="profile__input_error">{errors.name}</span>}
+                  </div>
+               </div>
+
+               <hr className='profile__hr' />
+
+               <div className='profile__info-text'>
+                  <div className='profile__name' >E-mail</div>
+                  <input className='profile__input' type="email" name="email" defaultValue={currentUser.email} onChange={handleChange} />
+                  {errors.email && <span className="profile__input_error">{errors.email}</span>}
+               </div>
+
+               <div className='profile__button-block'>
+                  <button disabled={!isValid} className='profile__button'>Редактировать</button>
+                  <button onClick={handleLogout} type='button' className='reg__link'>Выйти из аккаунта</button>
+               </div>
+            </form>
+         </section >
+      </>
+   );
 }
 
 export default Profile;

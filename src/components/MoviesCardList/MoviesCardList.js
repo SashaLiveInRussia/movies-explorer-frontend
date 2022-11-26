@@ -57,7 +57,12 @@ function MoviesCardList({ save, cards = [] }) {
 			)}
 			<section className="cardList">
 				{!isLoading && cards.slice(0, numberSlice).map(card => (
-					<MoviesCard key={card.id} card={card} save={save} />)
+					<MoviesCard
+						key={save ? card.movieId : card.id}
+						card={card}
+						save={save}
+						image={save ? card.image : 'https://api.nomoreparties.co' + card.image.url}
+					/>)
 				)}
 			</section>
 			{!isLoading && cards.length > cards.slice(0, numberSlice).length && <>

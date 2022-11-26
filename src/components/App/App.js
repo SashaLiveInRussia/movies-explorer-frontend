@@ -9,10 +9,20 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import Error from '../Error/Error'
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getMovies } from '../../utils/MainApi';
+import { useEffect } from 'react';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
-	//const auth = useSelector(state => state.auth);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			dispatch(getMovies());
+		}
+	}, [dispatch]);
+
 
 	return (
 		<div className="App">
@@ -23,15 +33,19 @@ function App() {
 			</Route>
 
 			<Route path="/movies">
-				<Header auth={true} />
-				<Movies save={false} />
-				<Footer />
+				<ProtectedRoute redirect="/signin">
+					<Header auth={true} />
+					<Movies save={false} />
+					<Footer />
+				</ProtectedRoute>
 			</Route>
 
 			<Route path="/saved-movies">
-				<Header auth={true} />
-				<SavedMovies save={true} />
-				<Footer />
+				<ProtectedRoute redirect="/signin">
+					<Header auth={true} />
+					<SavedMovies save={true} />
+					<Footer />
+				</ProtectedRoute>
 			</Route>
 
 			<Route path="/signup">
@@ -43,7 +57,9 @@ function App() {
 			</Route>
 
 			<Route path="/profile">
-				<Profile />
+				<ProtectedRoute redirect="/signin">
+					<Profile />
+				</ProtectedRoute>
 			</Route>
 
 			<Route path="/error">

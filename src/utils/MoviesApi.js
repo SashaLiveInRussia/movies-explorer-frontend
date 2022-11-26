@@ -17,20 +17,29 @@ function getResponse(res) {
 
 export const getMoviesData = createAsyncThunk(
 	'movies/getMoviesData',
-	(search) => {
-		localStorage.setItem('search', search);
-		
+	({ searchString, isShort }) => {
+		localStorage.setItem('search', searchString);
+		localStorage.setItem('isShort', isShort);
+
 		return fetch(`${MOVIES_URL}`, {
 			method: "GET",
 			headers: headers,
 		})
 			.then((res) => getResponse(res))
 			.then(cards => {
-				return cards.filter(card =>
-					card.nameRU
-						.toLowerCase()
-						.indexOf(search.toLowerCase()) >= 0
-				);
+				if (searchString) {
+					cards = cards.filter(card =>
+						card.nameRU
+							.toLowerCase()
+							.indexOf(searchString.toLowerCase()) >= 0
+					)
+				}
+
+				if (isShort) {
+					cards = cards.filter(card => card.duration <= 40)
+				}
+
+				return cards;
 			})
 			.then(filteredCards => {
 				localStorage.setItem('movies', JSON.stringify(filteredCards));

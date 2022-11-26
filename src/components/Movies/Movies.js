@@ -7,7 +7,7 @@ function Movies({ save }) {
 	const cards = useSelector(state => state.cards);
 	return (
 		<>
-			<SearchForm />
+			<SearchForm save={save} search={localStorage.getItem('search') ?? ''} short={localStorage.getItem('isShort')} />
 			<MoviesCardList cards={cards} save={save} />
 		</>
 	);

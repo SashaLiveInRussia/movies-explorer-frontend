@@ -31,19 +31,25 @@ export const logout = createAsyncThunk(
 	})
 );
 
-export const getUserData = () => fetchApi({
-	BASE_URL, path: 'users/me',
-});
+export const getUserData = createAsyncThunk(
+	'movies/getUserData',
+	() => fetchApi({
+		BASE_URL, path: 'users/me'
+	})
+);
 
-export const getMovies = () => fetchApi({
-	BASE_URL, path: 'movies',
-});
+export const getMovies = createAsyncThunk(
+	'movies/getMovies',
+	() => fetchApi({
+		BASE_URL, path: 'movies',
+	})
+);
 
 export const saveMovie = createAsyncThunk(
 	'movies/saveMovie',
 	({
 		country, director, duration, year, description,
-		image, trailer, thumbnail, nameRU, nameEN, movieId,
+		image, trailerLink, thumbnail, nameRU, nameEN, movieId,
 	}) => fetchApi({
 		BASE_URL,
 		path: 'movies',
@@ -55,15 +61,20 @@ export const saveMovie = createAsyncThunk(
 			year,
 			description,
 			image,
-			trailer,
+			trailerLink,
 			thumbnail,
 			nameRU,
 			nameEN,
 			movieId,
 		},
-	})
+	}).then(({ data }) => data)
 );
 
-export const removeMovie = ({ movieId }) => fetchApi({
-	BASE_URL, path: `movies/${movieId}`, method: 'DELETE',
-});
+export const removeMovie = createAsyncThunk(
+	'movies/removeMovie',
+	(movieId) => fetchApi({
+		BASE_URL, path: `movies/${movieId}`, method: 'DELETE',
+	}).then(() => {
+		return movieId
+	})
+);

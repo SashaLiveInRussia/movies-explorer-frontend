@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useState } from "react";
 
 export function useFormWithValidation() {
@@ -15,11 +16,11 @@ export function useFormWithValidation() {
 		setIsValid(target.closest("form").checkValidity());
 	};
 
-	const resetForm = (newValues = {}, newErrors = {}, newIsValid = false) => {
+	const resetForm = useCallback((newValues = {}, newErrors = {}, newIsValid = false) => {
 		setValues(newValues);
 		setErrors(newErrors);
 		setIsValid(newIsValid);
-	}
+	}, []);
 
 	return { values, handleChange, errors, isValid, resetForm };
 }
