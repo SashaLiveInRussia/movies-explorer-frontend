@@ -1,13 +1,14 @@
-import './Preloader.css';
+import React from 'react'
+import './Preloader.css'
 
-function Preloader({ more }) {
-  const preloadVisible = `preloader__button`;
+const Preloader = () => {
+    return (
+        <div className="preloader">
+            <div className="preloader__container">
+                <span className="preloader__round"></span>
+            </div>
+        </div>
+    )
+};
 
-  return (
-    <section className='preloader'>
-      <button type='button' onClick={more} className={preloadVisible}>Ещё</button>
-    </section>
-  );
-}
-
-export default Preloader;
+export default Preloader

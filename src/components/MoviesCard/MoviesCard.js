@@ -1,32 +1,55 @@
+import { useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveMovie } from '../../utils/MainApi';
 import './MoviesCard.css';
 
 function MoviesCard({ card, save }) {
-  function handleLikeClick(e) {
-    e.currentTarget.classList.toggle('card__like-activ');
-  }
+	const favoriteMovies = useSelector(state => state.favoriteMovies);
+	const dispatch = useDispatch();
 
-  return (
-    <div className='card'>
-      <div className='card__contain-img'>
-        <img alt={card.title} className='card__img' src={card.img} />
-      </div>
-      <div className='card__text'>
-        <div className='card__name'>
-          <div className='card__title'>{card.title}</div>
+	const likeClassName = useMemo(() => {
+		let className = 'card__like';
 
-          {save === false && (
-            <button type='button' className='card__like' onClick={handleLikeClick}></button>
-          )}
+		if (favoriteMovies.find(favoriteMovie => favoriteMovie.movieId === card.id)) {
+			className += ' card__like-active';
+		}
 
-          {save === true && (
-            <button type='button' className='card__like card__like_in card__delete' onClick={handleLikeClick}></button>
-          )}
+		return className;
+	}, [favoriteMovies, card.id]);
 
-        </div>
-        <div className='card__time'>1ч 47м</div>
-      </div>
-    </div >
-  );
+	function handleLikeClick(e) {
+		dispatch(saveMovie({ ...card, movieId: card.id }));
+	}
+
+	const time = useMemo(() => {
+		const hours = Math.floor(card.duration / 60);
+		const minutes = card.duration % 60; // dur = 80 % 60 = 1
+
+		return `${hours}ч ${minutes}м`;
+	}, [card.duration]);
+
+	return (
+		<div className='card'>
+			<a href={card.trailerLink} target="_blank" rel="noreferrer" className='card__contain-img'>
+				<img alt={card.nameRU} className='card__img' src={'https://api.nomoreparties.co' + card.image.url} />
+			</a>
+			<div className='card__text'>
+				<div className='card__name'>
+					<div className='card__title'>{card.nameRU}</div>
+
+					{save === false && (
+						<button type='button' className={likeClassName} onClick={handleLikeClick}></button>
+					)}
+
+					{save === true && (
+						<button type='button' className='card__like card__like_in card__delete' onClick={handleLikeClick}></button>
+					)}
+
+				</div>
+				<div className='card__time'>{time}</div>
+			</div>
+		</div >
+	);
 }
 
 export default MoviesCard;

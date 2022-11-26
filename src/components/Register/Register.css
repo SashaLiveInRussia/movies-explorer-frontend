@@ -1,79 +1,76 @@
 .reg__contain {
-  max-width: 396px;
-  display: flex;
-  flex-direction: column;
+	max-width: 396px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 .reg__form {
-  margin: 40px 0px 0px;
+	margin: 40px 0px 0px;
 }
 
 .reg__name-form {
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #a0a0a0;
+	font-family: "Inter", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 12px;
+	color: #a0a0a0;
 }
 
 .reg__form {
-  position: relative;
+	position: relative;
 }
 
-.reg__text_error {
-  visibility: hidden;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #ff3055;
-}
 
 .reg__input_error {
-  color: #ff3055;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  visibility: hidden;
+	color: #ff3055;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 12px;
+	visibility: hidden;
 }
 
 .reg__button-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 70px 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 70px 0px;
 }
 
 .reg__button {
-  background: #3456f3;
-  height: 45px;
-  border: 0px;
-  border-radius: 3px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  color: #ffffff;
-  cursor: pointer;
+	background: #3456f3;
+	height: 45px;
+	border: 0px;
+	border-radius: 3px;
+	font-family: "Inter", sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.reg__button[disabled] {
+	background-color: grey;
+	cursor: default;
 }
 
 .reg__link {
-  display: flex;
-  margin-top: 16px;
-  justify-content: center;
+	display: flex;
+	margin-top: 16px;
+	justify-content: center;
 }
 
 .reg__link-sign-in {
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  color: #3456f3;
-  text-decoration: none;
+	font-family: "Inter", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	color: #3456f3;
+	text-decoration: none;
 }

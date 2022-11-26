@@ -1,25 +1,42 @@
 import '../Login/Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useFormWithValidation } from '../../utils/useFormValidation';
+import { login } from '../../utils/MainApi';
+import { useDispatch } from 'react-redux';
 
 function Login({ link }) {
+	const history = useHistory();
+	const { values, handleChange, errors, isValid } = useFormWithValidation();
+	const dispatch = useDispatch();
+
+	function handleSubmit(event) {
+		event.preventDefault();
+
+		dispatch(login(values))
+			.then(() => {
+				history.push('/movies')
+			});
+	}
+
 	return (
 		<section className='reg'>
-			<form className='reg__contain'>
+			<form onSubmit={handleSubmit} noValidate className='reg__contain'>
 				<Link to='/' className='reg__logo'></Link>
 				<h2 className=''>Рады видеть!</h2>
 				<div className='reg__form'>
 					<label>
 						<div className='reg__name-form' >E-mail</div>
-						<input className='reg__input' type="email" />
+						<input name="email" onChange={handleChange} required className='reg__input' type="email" />
+						{errors.email && <span className="reg__text_error">{errors.email}</span>}
 					</label>
 					<label>
 						<div className='reg__name-form' >Пароль</div>
-						<input className='reg__input' type="password" />
-						<span className="reg__text_error">Что-то пошло не так...</span>
+						<input minLength="8" onChange={handleChange} required className='reg__input' name="password" type="password" />
+						{errors.password && <span className="reg__text_error">{errors.password}</span>}
 					</label>
 				</div>
 				<div className='reg__button-block'>
-					<button className='reg__button'>Зарегистрироваться</button>
+					<button disabled={!isValid} className='reg__button'>Войти</button>
 					<div className='reg__link'>
 						<div className='reg__link-text'>Ещё не зарегистрированы?</div>
 						<Link to={link} className='reg__link-sign-in'>Регистрация</Link>

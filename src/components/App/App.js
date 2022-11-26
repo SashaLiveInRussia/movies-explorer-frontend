@@ -9,45 +9,48 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import Error from '../Error/Error'
+import { useSelector } from 'react-redux';
 
 function App() {
-  return (
-    <div className="App">
-      <Route exact path="/">
-        <Header auth={false} />
-        <Main />
-        <Footer />
-      </Route>
+	//const auth = useSelector(state => state.auth);
 
-      <Route path="/movies">
-        <Header auth={true} />
-        <Movies save={false} />
-        <Footer />
-      </Route>
+	return (
+		<div className="App">
+			<Route exact path="/">
+				<Header auth={false} />
+				<Main />
+				<Footer />
+			</Route>
 
-      <Route path="/saved-movies">
-        <Header auth={true} />
-        <SavedMovies save={true} />
-        <Footer />
-      </Route>
+			<Route path="/movies">
+				<Header auth={true} />
+				<Movies save={false} />
+				<Footer />
+			</Route>
 
-      <Route path="/signup">
-        <Register link='/signin' />
-      </Route>
+			<Route path="/saved-movies">
+				<Header auth={true} />
+				<SavedMovies save={true} />
+				<Footer />
+			</Route>
 
-      <Route path="/signin">
-        <Login link='/signup' />
-      </Route>
+			<Route path="/signup">
+				<Register link='/signin' />
+			</Route>
 
-      <Route path="/profile">
-        <Profile />
-      </Route>
+			<Route path="/signin">
+				<Login link='/signup' />
+			</Route>
 
-      <Route path="/error">
-        <Error />
-      </Route>
-    </div>
-  );
+			<Route path="/profile">
+				<Profile />
+			</Route>
+
+			<Route path="/error">
+				<Error />
+			</Route>
+		</div>
+	);
 }
 
 export default App;

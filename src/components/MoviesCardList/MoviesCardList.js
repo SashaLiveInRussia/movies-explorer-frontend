@@ -1,153 +1,70 @@
 import './MoviesCardList.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
-function MoviesCardList({ save }) {
-	const [cards, setCards] = useState([]);
-	const [numberSlice, setNumberSlice] = useState(12);
+const grid = {
+	1280: {
+		count: 12,
+		more: 3
+	},
+
+	768: {
+		count: 8,
+		more: 2
+	},
+
+	480: {
+		count: 5,
+		more: 1
+	}
+}
+
+function MoviesCardList({ save, cards = [] }) {
+	const isLoading = useSelector(state => state.isLoading);
+	const isError = useSelector(state => state.isError);
+	const [numberSlice, setNumberSlice] = useState(grid[1280].count);
+	const [numberMore, setNumberMore] = useState(grid[1280].more);
 
 	useEffect(() => {
-		setCards(
-			[
-				{
-					_id: 1,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 1231231,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 18658,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 1097870,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 1988567,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 13123213,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 111111,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 22222222,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 333333,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 4444444444,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 5555551,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 66661,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 781,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 1234225,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 75471,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 34243251,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 1243242,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 15435636,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 125325,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 125325253,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 87097,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 43244,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 643,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-				{
-					_id: 32,
-					img: '/images/film1.png',
-					title: 'Моя карточка'
-				},
-			]
-		);
+		if (window.innerWidth < 768) {
+			setNumberSlice(grid[480].count)
+			setNumberMore(grid[480].more);
+			return;
+		}
+
+		if (window.innerWidth < 1280) {
+			setNumberSlice(grid[768].count)
+			setNumberMore(grid[768].more);
+			return;
+		}
 	}, []);
 
 	function handleMore() {
-		setNumberSlice(old => old + 12);
+		setNumberSlice(old => old + numberMore);
 	}
 
 	return (
 		<>
-			<section className='cardList'>
-				{cards.slice(0, numberSlice).map(card => (
-					<MoviesCard key={card._id} card={card} save={save} />
-				))}
+			{isLoading && <Preloader />}
+			{!isLoading && !isError && cards.length === 0 && (
+				<p className="cardList__find-error">Ничего не найдено</p>
+			)}
+			{!isLoading && isError && (
+				<p className="cardList__find-error">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>
+			)}
+			<section className="cardList">
+				{!isLoading && cards.slice(0, numberSlice).map(card => (
+					<MoviesCard key={card.id} card={card} save={save} />)
+				)}
 			</section>
-			{cards.length > cards.slice(0, numberSlice).length && <Preloader more={handleMore} cards={cards} />}
+			{!isLoading && cards.length > cards.slice(0, numberSlice).length && <>
+				<button type="button" onClick={handleMore} className="more__button">Ещё</button>
+			</>}
 		</>
 	);
-}
+};
 
 export default MoviesCardList;
