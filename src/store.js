@@ -1,5 +1,5 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit'
-import { getMovies, getUserData, login, logout, removeMovie, saveMovie, updateProfile } from './utils/MainApi';
+import { getMovies, getUserData, login, logout, register, removeMovie, saveMovie, updateProfile } from './utils/MainApi';
 import { getMoviesData } from './utils/MoviesApi';
 
 const moviesSlice = createSlice({
@@ -53,6 +53,10 @@ const moviesSlice = createSlice({
 			state.filteredFavoriteMovies.push(action.payload);
 		},
 		[login.fulfilled](state, action) {
+			state.currentUser = action.payload;
+			state.auth = true;
+		},
+		[register.fulfilled](state, action) {
 			state.currentUser = action.payload;
 			state.auth = true;
 		},

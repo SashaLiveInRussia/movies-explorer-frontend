@@ -2,9 +2,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchApi } from './api';
 export const BASE_URL = 'https://kinomovie.nomorepartiesxyz.ru';
 
-export const register = ({ name, email, password }) => fetchApi({
-	BASE_URL, path: 'signup', method: 'POST', body: { name, email, password },
-});
+export const register = createAsyncThunk(
+	'movies/register',
+	({ name, email, password }) => fetchApi({
+		BASE_URL, path: 'signup', method: 'POST', body: { name, email, password },
+	}).then((data) => {
+		const { token, ...user } = data;
+		localStorage.setItem('token', token);
+		return user;
+	})
+);
 
 export const login = createAsyncThunk(
 	'movies/login',
