@@ -12,7 +12,7 @@ function Login({ link }) {
 	function handleSubmit(event) {
 		event.preventDefault();
 
-		dispatch(login(values))
+		dispatch(login(values)).unwrap()
 			.then(() => {
 				history.push('/movies')
 			});

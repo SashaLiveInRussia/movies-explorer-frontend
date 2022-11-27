@@ -2,15 +2,17 @@ import '../Register/Register.css';
 import { Link, useHistory } from 'react-router-dom';
 import { register } from '../../utils/MainApi';
 import { useFormWithValidation } from '../../utils/useFormValidation';
+import { useDispatch } from 'react-redux';
 
 function Register({ link }) {
 	//const [form, setForm] = useState({});
 	const history = useHistory();
 	const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+	const dispatch = useDispatch();
 
 	function handleReg(event) {
 		event.preventDefault();
-		register(values)
+		dispatch(register(values)).unwrap()
 			.then(() => {
 				resetForm();
 				history.push('/movies');
