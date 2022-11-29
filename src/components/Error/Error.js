@@ -1,15 +1,16 @@
 import '../Error/Error.css';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Error() {
+	const history = useHistory();
 	return (
 		<section className='error'>
 			<div className='error__contain'>
 				<div className='error__name'>404</div>
 				<div className='error__text'>Страница не найдена</div>
-				<div className='error__back'><Link to='/' className='error__back'>Назад</Link></div>
+				<button onClick={() => history.goBack()} className='error__back'>Назад</button>
 			</div>
-			
+
 		</section >
 	);
 }

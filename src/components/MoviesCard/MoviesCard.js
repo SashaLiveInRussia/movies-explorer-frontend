@@ -1,11 +1,14 @@
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import logoutStorage from '../../utils/logoutStorage';
 import { removeMovie, saveMovie } from '../../utils/MainApi';
 import './MoviesCard.css';
 
 function MoviesCard({ card, save, image }) {
 	const favoriteMovies = useSelector(state => state.favoriteMovies);
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const likeClassName = useMemo(() => {
 		let className = 'card__like';
@@ -27,7 +30,14 @@ function MoviesCard({ card, save, image }) {
 				movieId: card.id,
 				image: 'https://api.nomoreparties.co' + card.image.url,
 				thumbnail: 'https://api.nomoreparties.co' + card.image.formats.thumbnail.url
-			}));
+			}))
+			.unwrap()
+			.catch(error => {
+				if (error.status === 401) {
+					logoutStorage();
+					history.push('/');
+				}
+			});
 		}
 	}
 

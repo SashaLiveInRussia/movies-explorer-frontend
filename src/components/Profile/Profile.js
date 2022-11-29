@@ -5,6 +5,7 @@ import { useFormWithValidation } from '../../utils/useFormValidation';
 import { logout, updateProfile } from '../../utils/MainApi';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
+import logoutStorage from '../../utils/logoutStorage';
 
 function Profile() {
    const history = useHistory();
@@ -24,10 +25,7 @@ function Profile() {
    }
 
    function handleLogout() {
-      localStorage.removeItem('token');
-      localStorage.removeItem('movies');
-      localStorage.removeItem('search');
-      localStorage.removeItem('isShort');
+      logoutStorage();
 
       dispatch(logout())
          .then(() => {

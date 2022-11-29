@@ -1,29 +1,38 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom'
+import logoutStorage from '../../utils/logoutStorage';
 import { getUserData } from '../../utils/MainApi';
 
-function ProtectedRoute({ children, redirect }) {
+function ProtectedRoute({ children, redirect, ...props }) {
+	const auth = useSelector(state => state.auth);
 	const dispatch = useDispatch();
-	const [auth, setAuth] = useState(null)
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		dispatch(getUserData()).unwrap()
+		setLoading(true)
+		dispatch(getUserData())
+			.unwrap()
 			.then(() => {
-				setAuth(true);
+				setLoading(false);
 			})
 			.catch(() => {
-				setAuth(false);
-			})
+				setLoading(false);
+				logoutStorage();
+			});
 	}, [dispatch]);
 
-	if (auth === true) {
+	if (loading) {
+		return null;
+	}
+
+	if ((auth === true && props.auth) || (auth === false && !props.auth)) {
 		return children
 	}
 
-	if (auth === false) {
+	if ((auth === false && props.auth === true) || (auth === true && props.auth === false)) {
 		return <Redirect to={redirect} />
 	}
 
